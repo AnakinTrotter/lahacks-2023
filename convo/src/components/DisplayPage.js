@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 
     export default function DisplayPage(props) {
         return (
-            <Container fluid style ={{maxHeight:'100vh', overflowY: 'scroll'}}>
+            <Container fluid style ={{maxHeight:'100vh', overflowY: 'auto'}}>
                 <div className="row" style ={{borderBottom: '2px solid black', position:'absolute', backgroundColor:'white', height:'10vh', width:'100%'}}>
                             <h1>Convo</h1>
                             
