@@ -116,10 +116,6 @@ export default function DisplayPage(props) {
                     <h1>Convo</h1>
                 </div>
             </div>
-            <div style={{ position: 'absolute', right: 0, bottom: '90vh', display: 'flex', justifyContent: 'space-between', width: '30vh' }}>
-                <Button onClick={handleClickDown} className="btn btn-secondary btn-sm" style={{ width: '15vh' }}>Previous</Button>
-                <Button onClick={handleClickUp} className="btn btn-secondary btn-sm" style={{ width: '15vh' }}>Next</Button>
-            </div>
             {/* <div style = {{position: 'absolute', bottom: '90vh', right: '15vh'}}>
                     <Button onClick={handleClickDown} class="btn btn-secondary btn-sm" min-width = "10vh">Previous</Button>
                 </div>
@@ -134,10 +130,12 @@ export default function DisplayPage(props) {
                 <div className="col" style={{ paddingTop: '10vh', maxHeight: '100vh', borderRight: '2px solid black' }}>
                     <div className="row" style={{ borderBottom: '2px solid black', overflowY: 'scroll', height: '30vh' }}>
                         <DisplayApiCall paragraphs={props.paragraphs} indexNum={index} />
-
-
                     </div>
-                    <div className="row" style={{ height: "58vh" }}>
+                    <div className="row" style={{ borderBottom: '2px solid black', overflowY: 'scroll', height: '5vh' }}>
+                        <Button onClick={handleClickDown} className="btn btn-secondary btn-sm" style={{ width: '50%' }}>Previous</Button>
+                        <Button onClick={handleClickUp} className="btn btn-secondary btn-sm" style={{ width: '50%' }}>Next</Button>
+                    </div>
+                    <div className="row" style={{ height: "53vh" }}>
                         <Chat questions={props.questions} />
                     </div>
                 </div>
