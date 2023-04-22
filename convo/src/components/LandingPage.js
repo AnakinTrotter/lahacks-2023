@@ -27,19 +27,19 @@ const LandingPage = () => {
     
 
   return (
-    <Container fluid style ={{maxHeight:'100vh', overflowY: 'scroll'}}>
+    <Container fluid style ={{maxHeight:'100vh'}}>
     <div className="row" style ={{borderBottom: '2px solid black', position:'absolute', backgroundColor:'white', height:'10vh', width:'100%'}}>
                 <h1>Convo</h1>
                 
     </div>
     <div className="row align-items-start">
-        <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', height: '100vh', borderRight: '2px solid black' }}>
+        <div className="col" style={{ paddingTop: '10vh', height: '100vh', borderRight: '2px solid black' }}>
             <div style={{margin:'20px'}}>
                 <InfoText/>
             </div>
         </div>
 
-        <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', height: '100vh', borderRight: '2px solid black' }}>
+        <div className="col" style={{ paddingTop: '10vh', height: '100vh', borderRight: '2px solid black' }}>
             <div style={{margin:'20px'}}>
                 <Form onSubmit={handleFormSubmit}>
                     <Form.Group controlId="formBasicInput form-inline">
