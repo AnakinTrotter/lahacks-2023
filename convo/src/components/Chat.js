@@ -74,7 +74,7 @@ export default function Chat(props) {
     };
 
     return (
-        <Container className="mt-3" style={{height: "100%"}}>
+        <Container className="mt-3" style={{ height: "100%", position: "relative" }}>
             <Stack gap={2}>{chatMessages}</Stack>
             <Form.Control
                 as="textarea"
@@ -82,6 +82,8 @@ export default function Chat(props) {
                 onKeyDown={handleKeyDown}
                 disabled={chatDisabled}
                 ref={inputRef}
+                style={{ maxWidth: "96.5%", position: "absolute", bottom: 20 }}
+                className="mx-auto mt-3"
             />
         </Container>
     );
