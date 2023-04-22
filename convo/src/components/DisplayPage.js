@@ -60,9 +60,9 @@ import { useState } from 'react';
                             <Button onClick={handleClickUp}>Next</Button>
 
                         </div>
-                        <div className="row" style={{height: "100%"}}> 
-                            <Chat questions={props.questions}/>
-                        </div>
+                        <div className="row" style={{ height: "58vh" }}>
+                        <Chat questions={props.questions} />
+                    </div>
                     </div>
                 </div>
                 </Container>
