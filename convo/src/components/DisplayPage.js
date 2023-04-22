@@ -4,15 +4,10 @@ import Chat from "@/components/Chat"
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-<<<<<<< HEAD
 import Modal from 'react-bootstrap/Modal';
 import Header from './Header';
 import { useEffect, useRef, useState } from 'react';
-=======
-import Modal from 'react-bootstrap/Modal'
-import { useEffect, useRef, useState} from 'react';
 import { useRouter } from 'next/router';
->>>>>>> 3c0ed977125f8e63c885c34f43c9b5fb6d46ca29
 // function DisplayParagraph(props){
 //     return (
 //         <div>
@@ -143,11 +138,7 @@ export default function DisplayPage(props) {
                 <Button variant="secondary" onClick={handleClose}>
                     Return to conversation
                 </Button>
-<<<<<<< HEAD
-                <Button variant="primary" style ={{backgroundColor:'black', color:'white',border:'0px'}}onClick={handleClose}>
-=======
-                <Button variant="primary" onClick={takeQuiz}>
->>>>>>> 3c0ed977125f8e63c885c34f43c9b5fb6d46ca29
+                <Button variant="primary" style ={{backgroundColor:'black', color:'white',border:'0px'}} onClick={takeQuiz}>
                     Take Quiz
                 </Button>
                 </Modal.Footer>
