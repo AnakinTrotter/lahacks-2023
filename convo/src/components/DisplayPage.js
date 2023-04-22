@@ -156,7 +156,6 @@ export default function DisplayPage(props) {
                     <div className="row" style={{ borderBottom: '2px solid black', overflowY: 'scroll', height: '30vh' }}>
                         <DisplayApiCall paragraphs={props.paragraphs} indexNum={index} />
                     </div>
-<<<<<<< HEAD
                     <div className="row" style={{ borderBottom: '2px solid black', overflowY: 'scroll', height: '5vh' }}>
                         <Button onClick={handleClickDown} className="btn btn-secondary btn-sm" style={{ width: '50%', backgroundColor:'white', color:'black',borderRadius:'0px',borderColor:'black',
                         borderTop:'0px',
@@ -168,11 +167,6 @@ export default function DisplayPage(props) {
                         borderRight:'0px',
                         borderBottom:'0px',
                         }}>Next</Button>
-=======
-                    <div className="row" style={{ borderBottom: '2px solid black', height: '5vh' }}>
-                        <Button onClick={handleClickDown} className="btn btn-secondary btn-sm" style={{ width: '50%' }}>Previous</Button>
-                        <Button onClick={handleClickUp} className="btn btn-secondary btn-sm" style={{ width: '50%' }}>Next</Button>
->>>>>>> ec4bec922d14633654655cd795199b9d270ced31
                     </div>
                     <div className="row" style={{ height: "53vh" }}>
                         <Chat questions={props.questions} />
