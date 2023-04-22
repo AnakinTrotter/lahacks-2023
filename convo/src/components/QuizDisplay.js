@@ -76,20 +76,39 @@ function Quiz(){
   let score = 0
   const handleSubmit = (event) => {
     event.preventDefault();
-    let score = 0;
+    let numCorrect = 0;
   
+    const selectedAnswers = [];
     quizQuestions.forEach((question, index) => {
-      const selectedAnswer = document.querySelector(`input[name="question-${index}"]:checked`);
+      const selectedAnswer = document.querySelector(
+        `input[name="question-${index}"]:checked`
+      );
+      const answerBubble = document.getElementById(
+        `question-${index}-answer-${question.answers.findIndex(
+          (answer) => answer.content === selectedAnswer?.value
+        )}`
+      );
       if (selectedAnswer && selectedAnswer.value) {
         const selectedContent = selectedAnswer.value;
-        const answer = question.answers.find((answer) => answer.content === selectedContent);
+        const answer = question.answers.find(
+          (answer) => answer.content === selectedContent
+        );
         if (answer && answer.isCorrect) {
-          score++;
+          numCorrect++;
+          selectedAnswers[index] = true;
+          if (answerBubble) {
+            answerBubble.style.backgroundColor = "lightgreen";
+          }
+        } else {
+          selectedAnswers[index] = false;
+          if (answerBubble) {
+            answerBubble.style.backgroundColor = "salmon";
+          }
         }
       }
     });
   
-    console.log(`Score: ${score} out of ${quizQuestions.length}`);
+    console.log(`Score: ${numCorrect} out of ${quizQuestions.length}`);
   };
   return (
     <div className="container mt-3">
@@ -98,23 +117,35 @@ function Quiz(){
         {quizQuestions.map((question, index) => (
           <Card key={index} className="mb-1 border-0">
             <Card.Body>
-              <Card.Title>Question {index + 1}: {question.question}</Card.Title>
+              <Card.Title>
+                Question {index + 1}: {question.question}
+              </Card.Title>
               {question.answers.map((answer, answerIndex) => (
                 <Form.Check
-                key={answerIndex}
-                type="radio"
-                id={`question-${index}-answer-${answerIndex}`}
-                label={answer.content}
-                name={`question-${index}`}
-                value={answer.content}
-                className = {"bubble"}
+                  key={answerIndex}
+                  type="radio"
+                  id={`question-${index}-answer-${answerIndex}`}
+                  label={answer.content}
+                  name={`question-${index}`}
+                  value={answer.content}
+                  className="bubble"
                 />
               ))}
             </Card.Body>
           </Card>
         ))}
-        <button className="btn btn-primary" style={{backgroundColor:'black' , borderColor:'black', marginLeft:'18px'}}type="submit">Submit</button>
-      </Form>
+        <button
+          className="btn btn-primary"
+          style={{
+            backgroundColor: "black",
+            borderColor: "black",
+            marginLeft: "18px",
+          }}
+          type="submit"
+        >
+          Submit
+        </button>
+      </Form>;
     </div>
   )
 }
