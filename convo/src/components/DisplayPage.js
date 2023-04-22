@@ -4,6 +4,7 @@ import Chat from "@/components/Chat"
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Modal from 'react-bootstrap/Modal'
 import { useEffect, useRef, useState } from 'react';
 // function DisplayParagraph(props){
 //     return (
@@ -98,9 +99,16 @@ function DisplayApiCall(props) {
 
 export default function DisplayPage(props) {
     const [index, setIndex] = useState(0);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const handleClickUp = () => {
         if (index < props.paragraphs.length - 1) {
             setIndex(index + 1);
+        }
+        else{
+            handleShow();
         }
     };
     const handleClickDown = () => {
@@ -110,7 +118,20 @@ export default function DisplayPage(props) {
     };
     return (
         <Container fluid style={{ maxHeight: '100vh', overflowY: 'auto' }}>
-
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                <Modal.Title>Convo Finished</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Congrats on making it through the text! Click the "Take Quiz" button to move onto the quiz</Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Return to conversation
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                    Take Quiz
+                </Button>
+                </Modal.Footer>
+            </Modal>
             <div id="top" className="row" style={{ borderBottom: '2px solid black', position: 'absolute', backgroundColor: 'white', height: '10vh', width: '100%' }}>
                 <div >
                     <h1>Convo</h1>
@@ -131,7 +152,7 @@ export default function DisplayPage(props) {
                     <div className="row" style={{ borderBottom: '2px solid black', overflowY: 'scroll', height: '30vh' }}>
                         <DisplayApiCall paragraphs={props.paragraphs} indexNum={index} />
                     </div>
-                    <div className="row" style={{ borderBottom: '2px solid black', overflowY: 'scroll', height: '5vh' }}>
+                    <div className="row" style={{ borderBottom: '2px solid black', height: '5vh' }}>
                         <Button onClick={handleClickDown} className="btn btn-secondary btn-sm" style={{ width: '50%' }}>Previous</Button>
                         <Button onClick={handleClickUp} className="btn btn-secondary btn-sm" style={{ width: '50%' }}>Next</Button>
                     </div>
