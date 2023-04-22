@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Card, Stack, Container, Form } from "react-bootstrap";
+
+const continueMessage = "Nice job! Click next to keep learning."
 
 const Bubble = (props) => {
     return (
@@ -16,15 +18,51 @@ const Bubble = (props) => {
     );
 };
 
-export default function Chat() {
+export default function Chat(props) {
     const [chatMessages, setChatMessages] = useState([])
+    const [questionIndex, setQuestionIndex] = useState(0)
+    const [chatDisabled, setChatDisabled] = useState(false)
+    const inputRef = useRef(null)
+
+    useEffect(() => {
+        sendQuestion()
+    }, [])
+
+    useEffect(() => {
+        if (inputRef.current) {
+            inputRef.current.focus()
+        }
+    }, [chatDisabled])
+
+    const sendQuestion = () => {
+        if (questionIndex < props.questions.length) {
+            setChatMessages((prev) => [
+                ...prev,
+                <Bubble text={props.questions[questionIndex]} user={false} key={crypto.randomUUID()} />
+            ])
+            setQuestionIndex((prev) => (prev + 1))
+            setChatDisabled(false)
+        } else {
+            setChatMessages((prev) => [
+                ...prev,
+                <Bubble text={continueMessage} user={false} key={crypto.randomUUID()} />
+            ])
+            setChatDisabled(true)
+        }
+    }
 
     const sendChat = (message) => {
-        setChatMessages([
-            ...chatMessages,
-            <Bubble text={message} user={true} />
+        if (!message || message === "") {
+            return
+        }
+        setChatDisabled(true)
+        setChatMessages((prev) => [
+            ...prev,
+            <Bubble text={message} user={true} key={crypto.randomUUID()} />
         ])
-        console.log(message)
+        setTimeout(() => {
+            sendQuestion();
+        }, 420);
     }
 
     const handleKeyDown = (event) => {
@@ -43,6 +81,8 @@ export default function Chat() {
                 rows={1}
                 className="mt-5"
                 onKeyDown={handleKeyDown}
+                disabled={chatDisabled}
+                ref={inputRef}
             />
         </Container>
     );
