@@ -33,13 +33,15 @@ export default function Chat(props) {
     useEffect(() => {
         const localStorageData = localStorage.getItem('sessions');
         const data = JSON.parse(localStorageData)[props.uuid].values[props.index]
+        let start = 0
         if (data.answers) {
             for (let i = 0; i < data.answers.length; i++) {
                 setChatMessages((prev) => [...prev, data.questions[i]]);
                 setChatMessages((prev) => [...prev, data.answers[i]]);
             }
+            start = data.answers.length
         }
-        sendQuestion()
+        sendQuestion(start)
     }, []);
 
     useEffect(() => {
@@ -54,10 +56,10 @@ export default function Chat(props) {
         }
     }, [chatMessages]);
 
-    const sendQuestion = () => {
-        if (questionIndex < props.questions.length) {
-            setChatMessages((prev) => [...prev, props.questions[questionIndex]]);
-            setQuestionIndex((prev) => (prev + 1));
+    const sendQuestion = (index) => {
+        if (index < props.questions.length) {
+            setChatMessages((prev) => [...prev, props.questions[index]]);
+            setQuestionIndex((prev) => (index + 1));
             setChatDisabled(false);
         } else {
             setChatMessages((prev) => [...prev, continueMessage]);
@@ -102,7 +104,7 @@ export default function Chat(props) {
         setChatDisabled(true);
         sendUser(message);
         setTimeout(() => {
-            sendQuestion();
+            sendQuestion(questionIndex);
         }, 420);
     };
 
