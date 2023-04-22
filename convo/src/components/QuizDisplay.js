@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal'
-
+let submitted = false;
 const quizQuestions = [
   {
     question: "What is the capital of France?",
@@ -41,13 +41,11 @@ const quizQuestions = [
 
   export default function QuizDisplay(props) {
     const router = useRouter()
-
-    const submitQuiz = () => {
-        console.log(props.uuid)
-        router.push(`/quiz/${props.uuid}`)
+    function viewInfo(){
+      if(submitted === false)
+        return;
+      router.push(`/quiz/${props.uuid}`)
     }
-
-    
     return (
         <Container fluid style={{ maxHeight: '100vh', overflowY: 'auto' }}>
             <div id="top" className="row" style={{ borderBottom: '2px solid black', position: 'absolute', backgroundColor: 'white', height: '10vh', width: '100%' }}>
@@ -77,7 +75,6 @@ function Quiz(){
   const handleSubmit = (event) => {
     event.preventDefault();
     let numCorrect = 0;
-  
     const selectedAnswers = [];
     quizQuestions.forEach((question, index) => {
       const selectedAnswer = document.querySelector(
@@ -93,7 +90,7 @@ function Quiz(){
       selectInputs.forEach((input) => {
         input.disabled = true;
       });
-      console.log(answerBubble)
+
       if (selectedAnswer && selectedAnswer.value) {
         const selectedContent = selectedAnswer.value;
         const answer = question.answers.find(
@@ -145,8 +142,14 @@ function Quiz(){
         }
       }
     });
-    console.log(`Score: ${numCorrect} out of ${quizQuestions.length}`);
+    const header = document.querySelector('.text-left.mb-0');
+    header.textContent = `Score: ${numCorrect} out of ${quizQuestions.length}`;
+    const submit = document.querySelector("button");
+    submit.textContent = "View Study Session Results"
+    submit.onlick = viewInfo();
+    submitted = true;
   };
+
   return (
     <div className="container mt-3">
       <h1 className="text-left mb-0">Quiz Example</h1>
@@ -172,17 +175,8 @@ function Quiz(){
             </Card.Body>
           </Card>
         ))}
-        <button
-          className="btn btn-primary"
-          style={{
-            backgroundColor: "black",
-            borderColor: "black",
-            marginLeft: "18px",
-          }}
-          type="submit"
-        >
-          Submit
-        </button>
+
+        <button type="submit" class="btn btn-secondary btn-lg">Submit Quiz</button>
       </Form>
     </div>
   )
