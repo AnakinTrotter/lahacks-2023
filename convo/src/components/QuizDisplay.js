@@ -34,7 +34,7 @@ const quizQuestions = [
       { content: "Nile", isCorrect: true },
       { content: "Amazon", isCorrect: false },
       { content: "Yangtze", isCorrect: false },
-      { content: "Mississippi", isCorrect: false }
+      { content: "Mississippi", isCorrect: false },
     ]
   }
 ];
@@ -94,20 +94,51 @@ function Quiz(){
           (answer) => answer.content === selectedContent
         );
         if (answer && answer.isCorrect) {
-          numCorrect++;
+          numCorrect++
           selectedAnswers[index] = true;
-          if (answerBubble) {
-            answerBubble.style.backgroundColor = "lightgreen";
-          }
         } else {
           selectedAnswers[index] = false;
-          if (answerBubble) {
+        }
+        if (answerBubble) {
+          if (answer.isCorrect) {
+            answerBubble.style.backgroundColor = "lightgreen";
+          } else {
             answerBubble.style.backgroundColor = "salmon";
           }
         }
       }
     });
-  
+    quizQuestions.forEach((question, index) => {
+      const selectedAnswer = document.querySelector(
+        `input[name="question-${index}"]:checked`
+      );
+      const answerBubbles = document.querySelectorAll(
+        `input[name="question-${index}"] + label`
+      );
+      question.answers.forEach((answer, answerIndex) => {
+        const answerBubble = answerBubbles[answerIndex];
+        if (answer && answer.isCorrect) {
+          if (answerBubble) {
+            answerBubble.style.backgroundColor = "lightgreen";
+          }
+        } else {
+          if (answerBubble) {
+            answerBubble.style.backgroundColor = "salmon";
+          }
+        }
+      });
+      if (selectedAnswer && selectedAnswer.value) {
+        const selectedContent = selectedAnswer.value;
+        const answer = question.answers.find(
+          (answer) => answer.content === selectedContent
+        );
+        if (answer && answer.isCorrect) {
+          selectedAnswers[index] = true;
+        } else {
+          selectedAnswers[index] = false;
+        }
+      }
+    });
     console.log(`Score: ${numCorrect} out of ${quizQuestions.length}`);
   };
   return (
@@ -128,6 +159,7 @@ function Quiz(){
                   label={answer.content}
                   name={`question-${index}`}
                   value={answer.content}
+                  correct={answer.isCorrect}
                   className="bubble"
                 />
               ))}
@@ -145,7 +177,7 @@ function Quiz(){
         >
           Submit
         </button>
-      </Form>;
+      </Form>
     </div>
   )
 }
