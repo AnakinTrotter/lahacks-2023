@@ -6,8 +6,10 @@ const questions = ["what is the capital of poland", "i hate school", "a", "b", "
 export default function Study() {
     const router = useRouter();
     const { uuid } = router.query;
-    const paragraphs = JSON.parse(localStorage.getItem('sessions'))[uuid].values
+    const paragraphData = JSON.parse(localStorage.getItem('sessions'))[uuid].values
+    const paragraphs = paragraphData.map((p) => p.original)
 
-    return <DisplayPage paragraphs={paragraphs} questions={questions} />
+    // change to use just the one prop
+    return <DisplayPage paragraphData={paragraphData} paragraphs={paragraphs} questions={questions} />
 
 }
