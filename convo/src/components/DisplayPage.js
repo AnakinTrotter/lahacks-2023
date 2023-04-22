@@ -5,7 +5,8 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState} from 'react';
+import { useRouter } from 'next/router';
 // function DisplayParagraph(props){
 //     return (
 //         <div>
@@ -102,9 +103,14 @@ function DisplayApiCall(props) {
 }
 
 export default function DisplayPage(props) {
+    const router = useRouter()
     const [index, setIndex] = useState(0);
     const [show, setShow] = useState(false);
 
+    const takeQuiz = () => {
+        console.log(props.uuid)
+        router.push(`/quiz/${props.uuid}`)
+    }
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleClickUp = () => {
@@ -131,7 +137,7 @@ export default function DisplayPage(props) {
                 <Button variant="secondary" onClick={handleClose}>
                     Return to conversation
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                <Button variant="primary" onClick={takeQuiz}>
                     Take Quiz
                 </Button>
                 </Modal.Footer>

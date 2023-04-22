@@ -1,8 +1,13 @@
 import React from 'react'
 import { Card, Form } from "react-bootstrap";
-
-
-
+import { useEffect, useRef, useState} from 'react';
+import { useRouter } from 'next/router';
+import Container from 'react-bootstrap/Container';
+import Chat from "@/components/Chat"
+import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Modal from 'react-bootstrap/Modal'
 
 const quizQuestions = [
     {
@@ -33,8 +38,75 @@ const quizQuestions = [
       ]
     }
   ];
+  export default function QuizDisplay(props) {
+    const router = useRouter()
+    const [index, setIndex] = useState(0);
+    const [show, setShow] = useState(false);
 
-const Quiz = () => {
+    const takeQuiz = () => {
+        console.log(props.uuid)
+        router.push(`/quiz/${props.uuid}`)
+    }
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const handleClickUp = () => {
+        if (index < props.paragraphs.length - 1) {
+            setIndex(index + 1);
+        }
+        else{
+            handleShow();
+        }
+    };
+    const handleClickDown = () => {
+        if (index > 0) {
+            setIndex(index - 1);
+        }
+    };
+    return (
+        <Container fluid style={{ maxHeight: '100vh', overflowY: 'auto' }}>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                <Modal.Title>Done Quizzing?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Congrats on finishing the quiz! Click next if you are ready to submit</Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Return to Quiz
+                </Button>
+                <Button variant="primary" onClick={takeQuiz}>
+                    Submit Quiz
+                </Button>
+                </Modal.Footer>
+            </Modal>
+            <div id="top" className="row" style={{ borderBottom: '2px solid black', position: 'absolute', backgroundColor: 'white', height: '10vh', width: '100%' }}>
+                <div >
+                    <h1>Convo</h1>
+                </div>
+            </div>
+            {/* <div style = {{position: 'absolute', bottom: '90vh', right: '15vh'}}>
+                    <Button onClick={handleClickDown} class="btn btn-secondary btn-sm" min-width = "10vh">Previous</Button>
+                </div>
+                <div style = {{position: 'absolute', bottom: '90vh', right: '0'}}>
+                    <Button onClick={handleClickUp} class="btn btn-secondary btn-sm">Next</Button>
+                </div> */}
+            <div className="row align-items-start">
+                <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', height: '100vh', borderRight: '2px solid black' }}>
+                  {props.paragraphs.map((item, index) => (
+                      <p>
+                          {item}
+                      </p>
+                  ))}
+                </div>
+
+                <div className="col" style={{ paddingTop: '10vh', maxHeight: '100vh', borderRight: '2px solid black' }}>
+                        <Quiz/>
+                </div>
+            </div>
+        </Container>
+
+    );
+}
+function Quiz(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -76,4 +148,4 @@ const Quiz = () => {
   )
 }
 
-export default Quiz
+// export default Quiz
