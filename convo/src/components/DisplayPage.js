@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import Header from './Header';
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
+import crypto from "crypto"
 
 function DisplayParagraph(props) {
     const highlightedRef = useRef(null);
