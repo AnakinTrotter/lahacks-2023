@@ -17,7 +17,6 @@ import Modal from 'react-bootstrap/Modal'
         router.push(`/quiz/${props.uuid}`)
     }
 
-    
     return (
         <Container fluid style={{ maxHeight: '100vh', overflowY: 'auto' }}>
             <div id="top" className="row" style={{ borderBottom: '2px solid black', position: 'absolute', backgroundColor: 'white', height: '10vh', width: '100%' }}>
@@ -35,7 +34,7 @@ import Modal from 'react-bootstrap/Modal'
                 </div>
 
                 <div className="col" style={{ paddingTop: '10vh', maxHeight: '100vh', borderRight: '2px solid black' }}>
-                    <StudyMastery/>
+                    <StudyMastery insights = {props.paragraphs} paragraphs = {props.paragraphs} percent = {props.percent}/>
                 </div>
             </div>
         </Container>

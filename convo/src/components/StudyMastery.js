@@ -21,8 +21,8 @@ const StudyMastery = (props) => {
             <div className="d-flex justify-content-center align-items-center flex-column">
                 <div className="text-center">
                     <CircularProgressbar
-                        value={percent}
-                        text={`${percent}%`}
+                        value={props.percent}
+                        text={`${props.percent}%`}
                         strokeWidth={10}
                     />
                 </div>
@@ -37,9 +37,6 @@ const StudyMastery = (props) => {
                 <div className="d-grid">
                     <Button variant="success" size="lg" className="mb-3">
                         Ready for another Convo?
-                    </Button>
-                    <Button variant="outline-secondary" size="lg">
-                        Review your last Convo
                     </Button>
                 </div>
             </div>
