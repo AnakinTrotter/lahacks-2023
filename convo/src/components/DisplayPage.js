@@ -10,15 +10,16 @@ import Col from 'react-bootstrap/Col';
             <Container fluid style ={{maxHeight:'100vh', overflowY: 'scroll'}}>
                 <div className="row" style ={{borderBottom: '2px solid black', position:'absolute', backgroundColor:'white', height:'10vh', width:'100%'}}>
                             <h1>Convo</h1>
+                            
                 </div>
                 <div className="row align-items-start">
-                    <div className="col" style={{ overflowY: 'scroll', height: '100vh', borderRight: '2px solid black' }}>
+                    <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', height: '100vh', borderRight: '2px solid black' }}>
                         {props.paragraphs.map((string, index) => (
                             <p key={index}>{string}</p>
                         ))}
                     </div>
 
-                    <div className="col" style={{ maxHeight: '100vh',  borderRight: '2px solid black' }}>
+                    <div className="col" style={{  paddingTop: '10vh', maxHeight: '100vh',  borderRight: '2px solid black' }}>
                         <div className="row" style={{ borderBottom: '2px solid black', overflowY:'scroll', height:'30vh'}}>     
                             {props.paragraphs.map((string, index) => (
                                 <p key={index}>{string}</p>
