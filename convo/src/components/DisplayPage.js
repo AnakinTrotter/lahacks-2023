@@ -76,7 +76,11 @@ function DisplayParagraph(props) {
                     key={crypto.randomUUID()}
                     ref={index === props.indexNum ? highlightedRef : null}
                     style={{
-                        backgroundColor: index === props.indexNum ? 'yellow' : 'transparent',
+                        textDecoration:  index === props.indexNum ? 'bold' : 'none',
+                        //fontWeight: index === props.indexNum ? 'bold' : 'none',
+                        backgroundColor: index === props.indexNum ? 'black' : 'none',
+                        color: index === props.indexNum ? 'white' : 'black',
+                        padding: '10px'
                     }}
                 >
                     {item}
@@ -132,8 +136,16 @@ export default function DisplayPage(props) {
                         <DisplayApiCall paragraphs={props.paragraphs} indexNum={index} />
                     </div>
                     <div className="row" style={{ borderBottom: '2px solid black', overflowY: 'scroll', height: '5vh' }}>
-                        <Button onClick={handleClickDown} className="btn btn-secondary btn-sm" style={{ width: '50%' }}>Previous</Button>
-                        <Button onClick={handleClickUp} className="btn btn-secondary btn-sm" style={{ width: '50%' }}>Next</Button>
+                        <Button onClick={handleClickDown} className="btn btn-secondary btn-sm" style={{ width: '50%', backgroundColor:'white', color:'black',borderRadius:'0px',borderColor:'black',
+                        borderTop:'0px',
+                        borderLeft:'0px',
+                        borderBottom:'0px',
+                     }}>Previous</Button>
+                        <Button onClick={handleClickUp} className="btn btn-secondary btn-sm" style={{  width: '50%', backgroundColor:'white', color:'black',borderRadius:'0px',borderColor:'black',
+                        borderTop:'0px',
+                        borderRight:'0px',
+                        borderBottom:'0px',
+                        }}>Next</Button>
                     </div>
                     <div className="row" style={{ height: "53vh" }}>
                         <Chat questions={props.questions} />

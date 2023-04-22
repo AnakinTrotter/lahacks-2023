@@ -7,10 +7,15 @@ const Bubble = (props) => {
     return (
         <Container className={`d-flex justify-content-${props.user ? "end" : "start"}`}>
             <Card
-                className={`bg-${props.user ? "primary" : "success"} m-0 p-0`}
-                style={{ width: "fit-content", minWidth: "4em" }}
+                className={`m-0 p-0`}
+                style={{ 
+                    width: "fit-content",
+                    minWidth: "4em" ,
+                    backgroundColor: props.user ? "white" : "black",
+                    color: props.user ? "black" : "white",
+                }}
             >
-                <Card.Body className="text-white mb-1 p-2">
+                <Card.Body className=" mb-1 p-2">
                     <p className={`text-center m-0 p-0`}>{props.text}</p>
                 </Card.Body>
             </Card>
