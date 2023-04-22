@@ -5,8 +5,8 @@ function createSession(paragraphs) {
         return {
             original: original,
             summary: null,
-            question: null,
-            answer: null
+            questions: null,
+
         }
     })
 
