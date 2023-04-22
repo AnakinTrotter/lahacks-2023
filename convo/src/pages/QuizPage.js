@@ -4,7 +4,7 @@ import Chat from "@/components/Chat"
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Quiz from '@/components/quiz';
+import Quiz from '@/components/Quiz';
 
 const QuizPage = () => {
   return (

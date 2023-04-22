@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Form } from 'react-bootstrap';
-import Quiz from '@/components/quiz';
+import Quiz from '@/components/Quiz';
 import InfoText from '@/components/InfoText';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -27,9 +27,9 @@ const LandingPage = () => {
       return
     }
     console.log(textareaValue);
-    // Submit textareaValue to server or perform other actions here
-    // create db values
+
     const uuid = crypto.randomUUID()
+    // create the value in localStorage from the uuid
     router.push(`/study/${uuid}`)
   };
 
