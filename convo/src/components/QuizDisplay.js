@@ -83,11 +83,17 @@ function Quiz(){
       const selectedAnswer = document.querySelector(
         `input[name="question-${index}"]:checked`
       );
+
       const answerBubble = document.getElementById(
         `question-${index}-answer-${question.answers.findIndex(
           (answer) => answer.content === selectedAnswer?.value
         )}`
       );
+      const selectInputs = document.querySelectorAll('.form-check-input');
+      selectInputs.forEach((input) => {
+        input.disabled = true;
+      });
+      console.log(answerBubble)
       if (selectedAnswer && selectedAnswer.value) {
         const selectedContent = selectedAnswer.value;
         const answer = question.answers.find(
