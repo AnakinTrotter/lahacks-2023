@@ -10,44 +10,47 @@ export default function Study({ data }) {
     const [paragraphs, setParagraphs] = useState([]);
     const [questionsData, setQuestionsData] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const localStorageData = localStorage.getItem('sessions');
-            if (localStorageData) {
-                const data = JSON.parse(localStorageData)[uuid]?.values || [];
-                const paragraphs = data.map((p) => p.original);
-                setParagraphs(paragraphs);
+    const fetchData = async () => {
+        const localStorageData = localStorage.getItem('sessions');
+        if (localStorageData) {
+            const data = JSON.parse(localStorageData)[uuid]?.values || [];
+            const paragraphs = data.map((p) => p.original);
+            setParagraphs(paragraphs);
 
-                for (const index in data) {
-                    const cur = data[index];
-                    if (!cur.questions) {
-                        const response = await fetch('/api/chatquery', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                paragraph: cur.original
-                            })
-                        });
+            for (const index in data) {
+                const cur = data[index];
+                if (!cur.questions) {
+                    const response = await fetch('/api/chatquery', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            paragraph: cur.original
+                        })
+                    });
 
-                        const questions = await response.json();
+                    const questions = await response.json();
 
-                        // Update the cur object with questions
-                        cur.questions = questions.questions;
-                        setQuestionsData((prev) => [...prev, cur.questions])
-                        // Update the data array with updated cur object
-                        data[index] = cur;
-                        // Save the updated data to local storage
-                        const sessions = JSON.parse(localStorage.getItem('sessions')) || {};
-                        sessions[uuid] = { values: data };
-                        localStorage.setItem('sessions', JSON.stringify(sessions));
-                    }
+                    // Update the cur object with questions
+                    cur.questions = questions.questions;
+                    setQuestionsData((prev) => [...prev, cur.questions])
+                    // Update the data array with updated cur object
+                    data[index] = cur;
+                    // Save the updated data to local storage
+                    const sessions = JSON.parse(localStorage.getItem('sessions')) || {};
+                    sessions[uuid] = { values: data };
+                    localStorage.setItem('sessions', JSON.stringify(sessions));
+                } else {
+                    setQuestionsData((prev) => [...prev, cur.questions])
                 }
-                setParagraphData(data);
             }
+            setParagraphData(data);
+        }
 
-        };
+    };
+
+    useEffect(() => {
         fetchData();
     }, [uuid]);
 
