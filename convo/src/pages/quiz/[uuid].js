@@ -1,4 +1,4 @@
-import QuizDisplay from "@/components/Quiz"
+import QuizDisplay from "@/components/QuizDisplay"
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
 const questions = ["what is the capital of poland", "i hate school", "a", "b", "c", "d"]
