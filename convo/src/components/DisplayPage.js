@@ -4,7 +4,8 @@ import Chat from "@/components/Chat"
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
+import Header from './Header';
 import { useEffect, useRef, useState } from 'react';
 // function DisplayParagraph(props){
 //     return (
@@ -131,16 +132,12 @@ export default function DisplayPage(props) {
                 <Button variant="secondary" onClick={handleClose}>
                     Return to conversation
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                <Button variant="primary" style ={{backgroundColor:'black', color:'white',border:'0px'}}onClick={handleClose}>
                     Take Quiz
                 </Button>
                 </Modal.Footer>
             </Modal>
-            <div id="top" className="row" style={{ borderBottom: '2px solid black', position: 'absolute', backgroundColor: 'white', height: '10vh', width: '100%' }}>
-                <div >
-                    <h1>Convo</h1>
-                </div>
-            </div>
+            <Header/>
             {/* <div style = {{position: 'absolute', bottom: '90vh', right: '15vh'}}>
                     <Button onClick={handleClickDown} class="btn btn-secondary btn-sm" min-width = "10vh">Previous</Button>
                 </div>

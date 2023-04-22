@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 import { Form } from 'react-bootstrap';
 import InfoText from '@/components/InfoText';
+import Header from './Header';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { createSession } from '@/database/dbUtils';
@@ -35,19 +36,16 @@ const LandingPage = () => {
 
   return (
     <Container fluid style={{ maxHeight: '100vh' }}>
-      <div className="row" style={{ borderBottom: '2px solid black', position: 'absolute', backgroundColor: 'white', height: '10vh', width: '100%' }}>
-        <h1>Convo</h1>
-
-      </div>
+      <Header/>
       <div className="row align-items-start">
         <div className="col" style={{ paddingTop: '10vh', height: '100vh', borderRight: '2px solid black' }}>
-          <div style={{ margin: '20px' }}>
+          <div style={{ margin: '10px' }}>
             <InfoText />
           </div>
         </div>
 
         <div className="col" style={{ paddingTop: '10vh', height: '100vh', borderRight: '2px solid black' }}>
-          <div style={{ margin: '20px' }}>
+          <div>
             <Form onSubmit={handleFormSubmit}>
               <Form.Group controlId="formBasicInput form-inline">
                 <Form.Label style={{ fontSize: '40px' }}>Hi Calvin! What can I help you with?</Form.Label>
