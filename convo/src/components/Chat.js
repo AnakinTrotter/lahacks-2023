@@ -23,6 +23,7 @@ export default function Chat(props) {
     const [questionIndex, setQuestionIndex] = useState(0)
     const [chatDisabled, setChatDisabled] = useState(false)
     const inputRef = useRef(null)
+    const chatContainerRef = useRef(null)
 
     useEffect(() => {
         sendQuestion()
@@ -33,6 +34,12 @@ export default function Chat(props) {
             inputRef.current.focus()
         }
     }, [chatDisabled])
+
+    useEffect(() => {
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+        }
+    }, [chatMessages])
 
     const sendQuestion = () => {
         if (questionIndex < props.questions.length) {
@@ -74,16 +81,17 @@ export default function Chat(props) {
     };
 
     return (
-        <Container className="mt-3" style={{ height: "100%", position: "relative" }}>
-            <Stack gap={2}>{chatMessages}</Stack>
+        <Container className="mt-0 mb-0 p-0" style={{ position: "relative", height: "100%" }}>
+            <Stack gap={2} style={{ overflowY: "scroll", height: "90%" }} className="m-0 pt-3" ref={chatContainerRef}>
+                {chatMessages}
+            </Stack>
             <Form.Control
                 as="textarea"
                 rows={1}
                 onKeyDown={handleKeyDown}
                 disabled={chatDisabled}
                 ref={inputRef}
-                style={{ maxWidth: "96.5%", position: "absolute", bottom: 20 }}
-                className="mx-auto mt-3"
+                style={{ maxWidth: "95%", position: "absolute", left: "11px", bottom: 0}}
             />
         </Container>
     );
