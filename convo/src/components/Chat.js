@@ -74,12 +74,11 @@ export default function Chat(props) {
     };
 
     return (
-        <Container>
+        <Container className="mt-3" style={{height: "100%"}}>
             <Stack gap={2}>{chatMessages}</Stack>
             <Form.Control
                 as="textarea"
                 rows={1}
-                className="mt-5"
                 onKeyDown={handleKeyDown}
                 disabled={chatDisabled}
                 ref={inputRef}
