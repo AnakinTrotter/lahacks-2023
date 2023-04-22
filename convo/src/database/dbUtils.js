@@ -1,0 +1,25 @@
+function createSession(paragraphs) {
+    const uuid = crypto.randomUUID()
+    const sessions = localStorage.getItem('sessions');
+    const values = paragraphs.map((original) => {
+        return {
+            original: original,
+            summary: null,
+            question: null,
+            answer: null
+        }
+    })
+
+    // this is why the localStorage clears each time
+    localStorage.setItem('sessions', JSON.stringify({
+        [uuid]: {
+            values
+        }
+    })
+    )
+    return uuid;
+}
+
+module.exports = {
+    createSession
+}

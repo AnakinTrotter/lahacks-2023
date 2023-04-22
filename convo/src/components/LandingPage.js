@@ -9,7 +9,7 @@ import Quiz from '@/components/Quiz';
 import InfoText from '@/components/InfoText';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-
+import { createSession } from '@/database/dbUtils';
 
 
 const LandingPage = () => {
@@ -26,9 +26,12 @@ const LandingPage = () => {
     if (!textareaValue || textareaValue === "") {
       return
     }
-    console.log(textareaValue);
 
-    const uuid = crypto.randomUUID()
+    // split text into paragraphs
+    const paragraphs = textareaValue.split(/\n\n/)
+
+    const uuid = createSession(paragraphs)
+
     // create the value in localStorage from the uuid
     router.push(`/study/${uuid}`)
   };
