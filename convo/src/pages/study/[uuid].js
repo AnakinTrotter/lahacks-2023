@@ -51,7 +51,7 @@ export default function Study({ data }) {
         fetchData();
     }, [uuid]);
 
-    if (!paragraphData || !paragraphs || !questionsData) {
+    if (paragraphData.length === 0 || paragraphs.length === 0 || questionsData.length === 0) {
         return <div>Loading...</div>;
     }
 

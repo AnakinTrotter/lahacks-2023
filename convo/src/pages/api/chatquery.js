@@ -26,7 +26,7 @@ export default async function handler(req, res) {
       {
         "message": {
           "role": "assistant",
-          "content": "\n\nThis is a question!~Here is another question!"
+          "content": `\n\nThis is a question ${crypto.randomUUID()}!~Here is another question! ${crypto.randomUUID()}`
         },
         "finish_reason": "stop",
         "index": 0
