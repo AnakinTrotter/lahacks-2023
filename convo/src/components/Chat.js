@@ -31,17 +31,15 @@ export default function Chat(props) {
     const chatContainerRef = useRef(null)
 
     useEffect(() => {
-        sendQuestion();
-        // const localStorageData = localStorage.getItem('sessions');
-        // const data = JSON.parse(localStorageData)[props.uuid].values[props.index]
-        // if (!data.answers) {
-        //     sendQuestion();
-        // } else {
-        //     for (let i = 0; i < data.answers.length; i++) {
-        //         console.log("hi")
-        //         sendQuestion()
-        //     }
-        // }
+        const localStorageData = localStorage.getItem('sessions');
+        const data = JSON.parse(localStorageData)[props.uuid].values[props.index]
+        if (data.answers) {
+            for (let i = 0; i < data.answers.length; i++) {
+                setChatMessages((prev) => [...prev, data.questions[i]]);
+                setChatMessages((prev) => [...prev, data.answers[i]]);
+            }
+        }
+        sendQuestion()
     }, []);
 
     useEffect(() => {
@@ -96,10 +94,6 @@ export default function Chat(props) {
 
         localStorage.setItem("sessions", JSON.stringify(newData));
     };
-
-
-
-
 
     const sendChat = (message) => {
         if (!message || message === "") {
