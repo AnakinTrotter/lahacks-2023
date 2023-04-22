@@ -1,4 +1,5 @@
 // return a few questions delimited by ~
+import crypto from "crypto"
 export default async function handler(req, res) {
   // const response = await fetch('https://api.gpt4.ai/completion', {
   //   method: 'POST',
