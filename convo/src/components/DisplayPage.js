@@ -4,9 +4,15 @@ import Chat from "@/components/Chat"
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+<<<<<<< HEAD
 import Modal from 'react-bootstrap/Modal';
 import Header from './Header';
 import { useEffect, useRef, useState } from 'react';
+=======
+import Modal from 'react-bootstrap/Modal'
+import { useEffect, useRef, useState} from 'react';
+import { useRouter } from 'next/router';
+>>>>>>> 3c0ed977125f8e63c885c34f43c9b5fb6d46ca29
 // function DisplayParagraph(props){
 //     return (
 //         <div>
@@ -103,9 +109,14 @@ function DisplayApiCall(props) {
 }
 
 export default function DisplayPage(props) {
+    const router = useRouter()
     const [index, setIndex] = useState(0);
     const [show, setShow] = useState(false);
 
+    const takeQuiz = () => {
+        console.log(props.uuid)
+        router.push(`/quiz/${props.uuid}`)
+    }
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleClickUp = () => {
@@ -132,7 +143,11 @@ export default function DisplayPage(props) {
                 <Button variant="secondary" onClick={handleClose}>
                     Return to conversation
                 </Button>
+<<<<<<< HEAD
                 <Button variant="primary" style ={{backgroundColor:'black', color:'white',border:'0px'}}onClick={handleClose}>
+=======
+                <Button variant="primary" onClick={takeQuiz}>
+>>>>>>> 3c0ed977125f8e63c885c34f43c9b5fb6d46ca29
                     Take Quiz
                 </Button>
                 </Modal.Footer>
