@@ -8,9 +8,9 @@ const Bubble = (props) => {
         <Container className={`d-flex justify-content-${props.user ? "end" : "start"}`}>
             <Card
                 className={`m-0 p-0`}
-                style={{ 
+                style={{
                     width: "fit-content",
-                    minWidth: "4em" ,
+                    minWidth: "4em",
                     backgroundColor: props.user ? "white" : "black",
                     color: props.user ? "black" : "white",
                 }}
@@ -31,56 +31,48 @@ export default function Chat(props) {
     const chatContainerRef = useRef(null)
 
     useEffect(() => {
-        sendQuestion()
-    }, [])
+        sendQuestion();
+    }, []);
 
     useEffect(() => {
         if (inputRef.current) {
-            inputRef.current.focus()
+            inputRef.current.focus();
         }
-    }, [chatDisabled])
+    }, [chatDisabled]);
 
     useEffect(() => {
         if (chatContainerRef.current) {
             chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
         }
-    }, [chatMessages])
+    }, [chatMessages]);
 
     const sendQuestion = () => {
         if (questionIndex < props.questions.length) {
-            setChatMessages((prev) => [
-                ...prev,
-                <Bubble text={props.questions[questionIndex]} user={false} key={crypto.randomUUID()} />
-            ])
-            setQuestionIndex((prev) => (prev + 1))
-            setChatDisabled(false)
+            setChatMessages((prev) => [...prev, props.questions[questionIndex]
+            ]);
+            setQuestionIndex((prev) => (prev + 1));
+            setChatDisabled(false);
         } else {
-            setChatMessages((prev) => [
-                ...prev,
-                <Bubble text={continueMessage} user={false} key={crypto.randomUUID()} />
-            ])
-            setChatDisabled(true)
+            setChatMessages((prev) => [...prev, continueMessage]);
+            setChatDisabled(true);
         }
-    }
+    };
 
     const sendChat = (message) => {
         if (!message || message === "") {
-            return
+            return;
         }
-        setChatDisabled(true)
-        setChatMessages((prev) => [
-            ...prev,
-            <Bubble text={message} user={true} key={crypto.randomUUID()} />
-        ])
+        setChatDisabled(true);
+        setChatMessages((prev) => [...prev, message]);
         setTimeout(() => {
             sendQuestion();
         }, 420);
-    }
+    };
 
     const handleKeyDown = (event) => {
         if (event.key === "Enter" && !event.shiftKey) {
             event.preventDefault();
-            sendChat(event.target.value)
+            sendChat(event.target.value);
             event.target.value = ""; // clear the input field after submission
         }
     };
@@ -88,7 +80,13 @@ export default function Chat(props) {
     return (
         <Container className="mt-0 mb-0 p-0" style={{ position: "relative", height: "100%" }}>
             <Stack gap={2} style={{ overflowY: "scroll", height: "90%" }} className="m-0 pt-3" ref={chatContainerRef}>
-                {chatMessages}
+                {chatMessages.map((message, index) => (
+                    <Bubble
+                        text={message}
+                        user={index % 2 !== 0}
+                        key={crypto.randomUUID()}
+                    />
+                ))}
             </Stack>
             <Form.Control
                 as="textarea"
@@ -96,7 +94,7 @@ export default function Chat(props) {
                 onKeyDown={handleKeyDown}
                 disabled={chatDisabled}
                 ref={inputRef}
-                style={{ maxWidth: "95%", position: "absolute", left: "11px", bottom: 0}}
+                style={{ maxWidth: "95%", position: "absolute", left: "11px", bottom: 0 }}
             />
         </Container>
     );
