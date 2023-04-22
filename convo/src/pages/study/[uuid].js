@@ -11,18 +11,27 @@ export default function Study({ data }) {
     const [paragraphs, setParagraphs] = useState([]);
 
     useEffect(() => {
-        const localStorageData = localStorage.getItem('sessions');
-        if (localStorageData) {
-            const data = JSON.parse(localStorageData)[uuid]?.values || [];
-            const paragraphs = data.map((p) => p.original);
-            setParagraphData(data);
-            setParagraphs(paragraphs);
-        }
+        const fetchData = async () => {
+            const localStorageData = localStorage.getItem('sessions');
+            if (localStorageData) {
+                const data = JSON.parse(localStorageData)[uuid]?.values || [];
+                const paragraphs = data.map((p) => p.original);
+                setParagraphs(paragraphs);
+
+                for (const cur of data) {
+                    if (!cur.questions) {
+
+                    }
+                }
+                setParagraphData(data);
+            }
+        };
+        fetchData();
     }, [uuid]);
 
     if (!paragraphData || !paragraphs) {
         return <div>Loading...</div>;
     }
 
-    return <DisplayPage paragraphData={paragraphData} paragraphs={paragraphs} questions={questions} />;
+    return <DisplayPage uuid={uuid} paragraphData={paragraphData} paragraphs={paragraphs} questions={questions} />;
 }

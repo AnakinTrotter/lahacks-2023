@@ -1,11 +1,6 @@
-import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import Chat from "@/components/Chat"
 import Button from 'react-bootstrap/Button'
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { Form } from 'react-bootstrap';
-import Quiz from '@/components/Quiz';
 import InfoText from '@/components/InfoText';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -29,8 +24,8 @@ const LandingPage = () => {
 
     // split text into paragraphs
     const paragraphs = textareaValue.split(/\n\n/)
-
-    const uuid = createSession(paragraphs)
+    const uuid = crypto.randomUUID()
+    createSession(uuid, paragraphs)
 
     // create the value in localStorage from the uuid
     router.push(`/study/${uuid}`)

@@ -1,5 +1,4 @@
-function createSession(paragraphs) {
-    const uuid = crypto.randomUUID()
+function createSession(uuid, paragraphs) {
     const sessions = localStorage.getItem('sessions');
     const values = paragraphs.map((original) => {
         return {
