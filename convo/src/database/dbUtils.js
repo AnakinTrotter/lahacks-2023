@@ -5,7 +5,7 @@ function createSession(uuid, paragraphs) {
             original: original,
             summary: null,
             questions: null,
-
+            answers: null
         }
     })
 

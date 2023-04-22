@@ -32,6 +32,16 @@ export default function Chat(props) {
 
     useEffect(() => {
         sendQuestion();
+        // const localStorageData = localStorage.getItem('sessions');
+        // const data = JSON.parse(localStorageData)[props.uuid].values[props.index]
+        // if (!data.answers) {
+        //     sendQuestion();
+        // } else {
+        //     for (let i = 0; i < data.answers.length; i++) {
+        //         console.log("hi")
+        //         sendQuestion()
+        //     }
+        // }
     }, []);
 
     useEffect(() => {
@@ -48,8 +58,7 @@ export default function Chat(props) {
 
     const sendQuestion = () => {
         if (questionIndex < props.questions.length) {
-            setChatMessages((prev) => [...prev, props.questions[questionIndex]
-            ]);
+            setChatMessages((prev) => [...prev, props.questions[questionIndex]]);
             setQuestionIndex((prev) => (prev + 1));
             setChatDisabled(false);
         } else {
@@ -58,12 +67,46 @@ export default function Chat(props) {
         }
     };
 
+    const sendUser = (message) => {
+        setChatMessages((prev) => [...prev, message]);
+
+        const localStorageData = localStorage.getItem("sessions");
+        const data = JSON.parse(localStorageData)[props.uuid].values[props.index];
+
+        if (!data.answers) {
+            data.answers = [message];
+        } else {
+            data.answers.push(message);
+        }
+
+        const newData = {
+            ...JSON.parse(localStorageData),
+            [props.uuid]: {
+                ...JSON.parse(localStorageData)[props.uuid],
+                values: [
+                    ...JSON.parse(localStorageData)[props.uuid].values.slice(0, props.index),
+                    {
+                        ...JSON.parse(localStorageData)[props.uuid].values[props.index],
+                        answers: data.answers
+                    },
+                    ...JSON.parse(localStorageData)[props.uuid].values.slice(props.index + 1),
+                ]
+            }
+        };
+
+        localStorage.setItem("sessions", JSON.stringify(newData));
+    };
+
+
+
+
+
     const sendChat = (message) => {
         if (!message || message === "") {
             return;
         }
         setChatDisabled(true);
-        setChatMessages((prev) => [...prev, message]);
+        sendUser(message);
         setTimeout(() => {
             sendQuestion();
         }, 420);

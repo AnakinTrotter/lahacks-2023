@@ -58,12 +58,7 @@ export default function DisplayPage(props) {
     const [index, setIndex] = useState(0);
     const [show, setShow] = useState(false);
 
-    useEffect(() => {
-        console.log(props)
-    }, [])
-
     const takeQuiz = () => {
-        console.log(props.uuid)
         router.push(`/quiz/${props.uuid}`)
     }
     const handleClose = () => setShow(false);
@@ -128,7 +123,10 @@ export default function DisplayPage(props) {
                         }}>Next</Button>
                     </div>
                     <div className="row" style={{ height: "53vh" }}>
-                        <Chat questions={props.questions[index]} key={crypto.randomUUID()} />
+                        <Chat questions={props.questions[index]}
+                            index={index}
+                            uuid={props.uuid}
+                            key={crypto.randomUUID()} />
                     </div>
                 </div>
             </div>

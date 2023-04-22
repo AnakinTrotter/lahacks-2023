@@ -14,6 +14,7 @@ export default function Study({ data }) {
         const localStorageData = localStorage.getItem('sessions');
         if (localStorageData) {
             const data = JSON.parse(localStorageData)[uuid]?.values || [];
+            console.log("NOG " + JSON.stringify(data))
             const paragraphs = data.map((p) => p.original);
             setParagraphs(paragraphs);
 
