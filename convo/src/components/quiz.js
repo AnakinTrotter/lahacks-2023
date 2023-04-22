@@ -34,20 +34,19 @@ const quizQuestions = [
     }
   ];
 
-
 const Quiz = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Handle form submission
+
     };
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-left mb-5">Quiz Example</h1>
+    <div className="container mt-3">
+      <h1 className="text-left mb-0">Quiz Example</h1>
       <Form onSubmit={handleSubmit}>
         {quizQuestions.map((question, index) => (
-          <Card key={index} className="mb-4 border-0">
+          <Card key={index} className="mb-1 border-0">
             <Card.Body>
               <Card.Title>Question {index + 1}: {question.question}</Card.Title>
               {question.answers.map((answer, answerIndex) => (
@@ -71,7 +70,7 @@ const Quiz = () => {
             </Card.Body>
           </Card>
         ))}
-        <button className="btn btn-primary" type="submit">Submit</button>
+        <button className="btn btn-primary" style={{backgroundColor:'black' , borderColor:'black', marginLeft:'18px'}}type="submit">Submit</button>
       </Form>
     </div>
   )
