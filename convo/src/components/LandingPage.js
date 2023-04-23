@@ -35,9 +35,9 @@ const LandingPage = () => {
 
 
   return (
-    <Container fluid style={{ maxHeight: '100vh' }}>
+    <Container fluid style={{ maxHeight: '120vh', maxWidth: '200vh' }}>
       <div className="row align-items-start">
-        <div className="landing-left-col" style={{height: '100vh', borderRight: '2px solid black' }}>
+        <div className="landing-left-col" style={{height: '120vh', borderRight: '2px solid black' }}>
           <div style={{ margin: '10px' }}>
             <InfoText />
           </div>
