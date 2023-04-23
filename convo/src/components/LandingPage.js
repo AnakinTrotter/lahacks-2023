@@ -6,7 +6,7 @@ import Header from './Header';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { createSession } from '@/database/dbUtils';
-
+import { v4 as uuidv4 } from 'uuid';
 const LandingPage = () => {
   const router = useRouter()
 
@@ -24,7 +24,7 @@ const LandingPage = () => {
 
     // split text into paragraphs
     const paragraphs = textareaValue.split(/\n\n/)
-    const uuid = crypto.randomUUID()
+    const uuid = uuidv4()
     createSession(uuid, paragraphs)
 
     // create the value in localStorage from the uuid
