@@ -23,5 +23,5 @@ export default async function handler(req, res) {
 
   const ans = completion.data.choices[0].message.content.trim()
 
-  res.status(200).json({ questions: ans.split('\n') });
+  res.status(200).json(ans);
 }
