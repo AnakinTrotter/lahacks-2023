@@ -1,15 +1,35 @@
-.form-control:focus {
+/* .form-control:focus {
     border-color: #000000;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.4);
   }
 .form-control.col-md-offset-1 {
     vertical-align: top;
+} */
+
+.form-control:not(:focus){
+  border-color: #ECECEC;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.form-control {
+  /* Rectangle 156 */
+
+  
+  position: absolute;
+  width: 600px;
+  height: 250px;
+  left: 875px;
+  top: 380px;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 
 .my-progress-bar .CircularProgressbar-trail {
     stroke: rgba(0, 0, 0, 0.2);
   }
 
+<<<<<<< HEAD
 
 .logo{
     font-family: 'Inter';
@@ -30,3 +50,114 @@
 *{
     font-family: 'Roboto Mono', monospace;
 }
+=======
+  
+.CircularProgressbar-path       { stroke: red; }
+.CircularProgressbar-trail      { stroke: red; }
+.CircularProgressbar-text       { fill: red; }
+.CircularProgressbar-background { fill: red; }
+
+.landing-text {
+  /* Convo speaks a language only you understand. */
+
+  position: absolute;
+  width: 509px;
+  height: 96px;
+  left: 119px;
+  top: 120px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+
+  background: linear-gradient(179.68deg, #FFFFFF 54.66%, #000000 120.45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+
+}
+
+.landing-left-col {
+  /* Rectangle 158 */
+
+  position: absolute;
+  width: 756px;
+  height: 982px;
+  left: 0px;
+  top: 0px;
+
+  background: #101010;
+}
+
+.info-text {
+  /* Start a chat by inputting information such as lectures, readings, or a story. */
+
+  position: absolute;
+  width: 441px;
+  height: 40px;
+  left: 150px;
+  top: 285px;
+
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hi-there {
+  /* Hi there! What can I help you with? */
+
+
+position: absolute;
+width: 518px;
+height: 96px;
+left: 875px;
+top: 239px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+line-height: 48px;
+
+background: linear-gradient(180deg, #ECECEC 0%, #000000 37.07%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+}
+
+.lets-chat-button {
+  /* Rectangle 156 */
+
+
+position: absolute;
+width: 169px;
+height: 46px;
+left: 1224px;
+top: 640px;
+
+background: #262626;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+
+.dot {
+  box-sizing: border-box;
+
+position: absolute;
+width: 80px;
+height: 80px;
+left: 119px;
+top: 409px;
+
+border: 1px solid #FFFFFF;
+border-radius: 50%;
+}
+>>>>>>> bddba33d56d07ce151a9124fde852b0753028a4d
