@@ -1,49 +1,52 @@
 import QuizDisplay from "@/components/QuizDisplay"
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
-const questions = ["what is the capital of poland", "i hate school", "a", "b", "c", "d"]
-const quizQuestions = [
-    {
-      question: "What is the capital of France?",
-      answers: [
-        { content: "London", isCorrect: false },
-        { content: "Paris", isCorrect: true },
-        { content: "Berlin", isCorrect: false },
-        { content: "Rome", isCorrect: false }
-      ]
-    },
-    {
-      question: "What is the largest planet in our solar system?",
-      answers: [
-        { content: "Jupiter", isCorrect: true },
-        { content: "Saturn", isCorrect: false },
-        { content: "Mars", isCorrect: false },
-        { content: "Earth", isCorrect: false }
-      ]
-    },
-    {
-      question: "What is the name of the longest river in Africa?",
-      answers: [
-        { content: "Nile", isCorrect: true },
-        { content: "Amazon", isCorrect: false },
-        { content: "Yangtze", isCorrect: false },
-        { content: "Mississippi", isCorrect: false },
-      ]
-    }
-  ];
+
+// const quizQuestions = [
+//     {
+//       question: "What is the capital of France?",
+//       answers: [
+//         { content: "London", isCorrect: false },
+//         { content: "Paris", isCorrect: true },
+//         { content: "Berlin", isCorrect: false },
+//         { content: "Rome", isCorrect: false }
+//       ]
+//     },
+//     {
+//       question: "What is the largest planet in our solar system?",
+//       answers: [
+//         { content: "Jupiter", isCorrect: true },
+//         { content: "Saturn", isCorrect: false },
+//         { content: "Mars", isCorrect: false },
+//         { content: "Earth", isCorrect: false }
+//       ]
+//     },
+//     {
+//       question: "What is the name of the longest river in Africa?",
+//       answers: [
+//         { content: "Nile", isCorrect: true },
+//         { content: "Amazon", isCorrect: false },
+//         { content: "Yangtze", isCorrect: false },
+//         { content: "Mississippi", isCorrect: false },
+//       ]
+//     }
+//   ];
+
+const quizQuestions = [];
+
 export default function QuizPage({ data }) {
 
-    // const response = await fetch('/api/quizquery', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         paragraph: cur.original
-    //     })
-    // });
+    const response = await fetch('/api/quizquery', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            paragraph: cur.original
+        })
+    });
 
-    // const questions = await response.json();
+    const quizQuestions = await response.json();
 
     const router = useRouter();
     const { uuid } = router.query;
