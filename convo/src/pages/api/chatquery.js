@@ -1,5 +1,5 @@
 // return a few questions delimited by ~
-import crypto from "crypto"
+import { v4 as uuidv4 } from 'uuid';
 export default async function handler(req, res) {
   // const response = await fetch('https://api.gpt4.ai/completion', {
   //   method: 'POST',
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
       {
         "message": {
           "role": "assistant",
-          "content": `\n\nThis is a question ${crypto.randomUUID()}!~Here is another question! ${crypto.randomUUID()}`
+          "content": `\n\nThis is a question ${uuidv4()}!~Here is another question! ${uuidv4()}`
         },
         "finish_reason": "stop",
         "index": 0
