@@ -3,7 +3,7 @@ import { Configuration, OpenAIApi } from "openai";
 export default async function handler(passage, req, res) {
   console.log("pog")
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: process.env.GPT_API_KEY,
   });
 
   const openai = new OpenAIApi(configuration);

@@ -51,7 +51,7 @@ ${input}
 
 export default async function handler(req, res) {
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: process.env.GPT_API_KEY,
   });
 
   // console.log("PROMPT " + chatPrompt(req.body.paragraph))
