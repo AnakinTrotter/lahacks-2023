@@ -80,16 +80,8 @@ export default function DisplayPage(props) {
         }
     };
     return (
-        <>
-        <head>
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/> */}
-            <style>
-            @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-            </style>
-        </head>
-        {<Container fluid style={{ maxHeight: '100vh', overflowY: 'auto' }}>
+        
+        <Container fluid style={{ maxHeight: '100vh', overflowY: 'auto' }}>
 
 
             <Modal show={show} onHide={handleClose}>
@@ -169,8 +161,7 @@ export default function DisplayPage(props) {
                     </div>
                 </div>
             </div>
-        </Container>}
-        </>
+        </Container>
 
     );
 }
