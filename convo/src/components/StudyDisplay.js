@@ -33,7 +33,7 @@ import Modal from 'react-bootstrap/Modal'
                   ))}
                 </div>
 
-                <div className="col" style={{ paddingTop: '10vh', maxHeight: '100vh', borderRight: '2px solid black' }}>
+                <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', maxHeight: '100vh', borderRight: '2px solid black' }}>
                     <StudyMastery insights = {props.paragraphs} paragraphs = {props.paragraphs} percent = {props.percent}/>
                 </div>
             </div>
