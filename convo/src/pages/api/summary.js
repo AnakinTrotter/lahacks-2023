@@ -3,7 +3,13 @@ import { Configuration, OpenAIApi } from "openai";
 
 const summaryPrompt = (prefs, paragraphs) => {
     return `
+Based on the users preferences: ${prefs};
+please rephrase this array of paragraphs and return it as an array of strings with the same number of indexes:
 
+${paragraphs}
+
+Sample output:
+["I am happy", "I am sad"]
 `
 }
 
