@@ -62,8 +62,8 @@
   /* Rectangle 158 */
 
   position: absolute;
-  width: 756px;
-  height: 982px;
+  width: 50vw;
+  height: 100vh;
   left: 0px;
   top: 0px;
 
@@ -73,9 +73,9 @@
 .info-text {
   /* Start a chat by inputting information such as lectures, readings, or a story. */
 
-  position: absolute;
-  width: 441px;
-  height: 40px;
+  position: relative;
+  width: 25vw;
+  height: 60vh;
   left: 150px;
   top: 285px;
 
