@@ -5,3 +5,13 @@
 .form-control.col-md-offset-1 {
     vertical-align: top;
 }
+
+.my-progress-bar .CircularProgressbar-trail {
+    stroke: rgba(0, 0, 0, 0.2);
+  }
+
+  
+.CircularProgressbar-path       { stroke: red; }
+.CircularProgressbar-trail      { stroke: red; }
+.CircularProgressbar-text       { fill: red; }
+.CircularProgressbar-background { fill: red; }
