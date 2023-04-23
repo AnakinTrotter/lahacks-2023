@@ -48,7 +48,7 @@ const LandingPage = () => {
             <Form onSubmit={handleFormSubmit}>
               <Form.Group controlId="formBasicInput form-inline">
                 <Form.Label style={{ fontSize: '40px' }}>Hi Calvin! What can I help you with?</Form.Label>
-                <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" onChange={handleTextareaChange}></textarea>
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="20" onChange={handleTextareaChange}></textarea>
               </Form.Group>
               <Button style={{ backgroundColor: "black", border: 'none', marginTop: '10px' }} type="submit">let's chat</Button>
             </Form>
