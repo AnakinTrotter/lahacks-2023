@@ -45,7 +45,7 @@ export default function Results({ data }) {
                     console.log(chats)
                 }
                 localStorage.setItem("UserChats", JSON.stringify(chats));
-                let k = 0;
+                let k = Math.floor(Math.random());
                 let prompt = "Based on the text: \"" + chats[k][0] + "\"";
                 let A = true;
                 prompt += " User A and User B had this conversation:\n";
