@@ -1,6 +1,7 @@
 import QuizDisplay from "@/components/QuizDisplay"
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const quizDummyQuestions = [
   {
@@ -64,7 +65,7 @@ export default function QuizPage({ data }) {
   }, [uuid]);
 
   if (!paragraphs || !quizQuestions || paragraphs.length == 0 || quizQuestions.length == 0) {
-    return <div>Loading...</div>;
+    return <LoadingScreen />;
   }
 
   return <QuizDisplay uuid={uuid} paragraphs={paragraphs} questions={quizQuestions} />;

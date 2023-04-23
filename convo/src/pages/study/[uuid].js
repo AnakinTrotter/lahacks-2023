@@ -1,6 +1,7 @@
 import DisplayPage from "@/components/DisplayPage"
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export default function Study({ data }) {
     const router = useRouter();
@@ -71,7 +72,7 @@ export default function Study({ data }) {
     }, [uuid]);
 
     if (paragraphData.length === 0 || paragraphs.length === 0 || questionsData.length === 0) {
-        return <div>Loading...</div>;
+        return <LoadingScreen />;
     }
 
     return <DisplayPage uuid={uuid} paragraphData={paragraphData} paragraphs={paragraphs} questions={questionsData} />;

@@ -2,7 +2,7 @@ import StudyMastery from "@/components/StudyMastery"
 import StudyDisplay from "@/components/StudyDisplay";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
-const questions = ["what is the capital of poland", "i hate school", "a", "b", "c", "d"]
+import LoadingScreen from "@/components/LoadingScreen";
 
 export default function Results({ data }) {
     const router = useRouter();
@@ -86,7 +86,7 @@ export default function Results({ data }) {
 
     if (!paragraphData || !paragraphs || !insights ||
         insights.length == 0 || paragraphs.length == 0) {
-        return <div>Loading...</div>;
+        return <LoadingScreen />;
     }
 
     return <StudyDisplay uuid={uuid} insights={insights} percent={percent} paragraphs={paragraphs} />;
