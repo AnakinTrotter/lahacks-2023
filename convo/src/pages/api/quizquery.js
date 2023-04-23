@@ -1,6 +1,6 @@
 import crypto from "crypto"
 
-export default async function handler(passage, req, res) {
+export default async function quiz_handler(passage, req, res) {
     const response = await fetch('https://api.gpt4.ai/completion', {
       method: 'POST',
       headers: {

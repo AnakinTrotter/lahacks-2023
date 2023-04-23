@@ -4,6 +4,19 @@ import { useEffect, useState } from "react";
 const questions = ["what is the capital of poland", "i hate school", "a", "b", "c", "d"]
 
 export default function QuizPage({ data }) {
+
+    const response = await fetch('/api/quizquery', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            paragraph: cur.original
+        })
+    });
+
+    const questions = await response.json();
+
     const router = useRouter();
     const { uuid } = router.query;
     const [paragraphData, setParagraphData] = useState([]);

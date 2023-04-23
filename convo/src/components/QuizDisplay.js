@@ -8,37 +8,9 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal'
-import quizquery from '@/pages/api/quizquery'
+import { handler } from '@/pages/api/quizquery'
 
-const quizQuestions = [
-  {
-    question: "What is the capital of France?",
-    answers: [
-      { content: "London", isCorrect: false },
-      { content: "Paris", isCorrect: true },
-      { content: "Berlin", isCorrect: false },
-      { content: "Rome", isCorrect: false }
-    ]
-  },
-  {
-    question: "What is the largest planet in our solar system?",
-    answers: [
-      { content: "Jupiter", isCorrect: true },
-      { content: "Saturn", isCorrect: false },
-      { content: "Mars", isCorrect: false },
-      { content: "Earth", isCorrect: false }
-    ]
-  },
-  {
-    question: "What is the name of the longest river in Africa?",
-    answers: [
-      { content: "Nile", isCorrect: true },
-      { content: "Amazon", isCorrect: false },
-      { content: "Yangtze", isCorrect: false },
-      { content: "Mississippi", isCorrect: false },
-    ]
-  }
-];
+
 
   export default function QuizDisplay(props) {
     const router = useRouter()
