@@ -77,6 +77,7 @@ export default function Results({ data }) {
                 // console.log(JSON.parse(profile));
                 setInsights(JSON.parse(profile));
                 setParagraphs(paragraphs);
+                localStorage.setItem("UserInfo", JSON.parse(profile));   
                 setParagraphData(data);
                 setPercent(percent)
             }

@@ -12,12 +12,6 @@ export default function Study({ data }) {
     const fetchData = async () => {
         const localStorageData = localStorage.getItem('sessions');
         if (localStorageData) {
-            if (localStorage.getItem("UserInfo") == null) {
-                localStorage.setItem("UserInfo", JSON.stringify(["Welcome! You are a new user"]));   
-            }
-            else{
-                console.log(JSON.parse(localStorage.getItem("UserInfo")))
-            }
             const data = JSON.parse(localStorageData)[uuid]?.values || [];
             const paragraphs = data.map((p) => p.original);
             setParagraphs(paragraphs);
