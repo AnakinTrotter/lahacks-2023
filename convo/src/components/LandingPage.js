@@ -7,7 +7,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { createSession } from '@/database/dbUtils';
 
-
 const LandingPage = () => {
   const router = useRouter()
 
