@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { createSession } from '@/database/dbUtils';
 import Modal from 'react-bootstrap/Modal'
-
+import Header from './Header';
 
   export default function QuizDisplay(props) {
     let quizQuestions = props.questions;
@@ -103,11 +103,7 @@ import Modal from 'react-bootstrap/Modal'
     }
     return (
         <Container fluid style={{ maxHeight: '100vh', overflowY: 'auto' }}>
-            <div id="top" className="row" style={{ borderBottom: '2px solid black', position: 'absolute', backgroundColor: 'white', height: '10vh', width: '100%' }}>
-                <div >
-                    <h1>Convo</h1>
-                </div>
-            </div>
+            <Header/>
             <div className="row align-items-start">
                 <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', height: '100vh', borderRight: '2px solid black' }}>
                   {props.paragraphs.map((item, index) => (
