@@ -12,8 +12,10 @@ const Bubble = (props) => {
                     width: "fit-content",
                     minWidth: "4em",
                     maxWidth: "50%",
+                    borderRadius:'20px',
                     backgroundColor: props.user ? "white" : "black",
                     color: props.user ? "black" : "white",
+                    fontSize:'14px'
                 }}
             >
                 <Card.Body className=" mb-1 p-2">
@@ -118,7 +120,11 @@ export default function Chat(props) {
     };
 
     return (
-        <Container className="mt-0 mb-0 p-0" style={{ position: "relative", height: "100%" }}>
+        <Container className="mt-0 mb-0 p-0" style={{ 
+            position: "relative", 
+            height: "100%" ,
+            border:'0.5px solid black',
+            borderRadius:'20px'}}>
             <Stack gap={2} style={{ overflowY: "scroll", height: "90%" }} className="m-0 pt-3" ref={chatContainerRef}>
                 {chatMessages.map((message, index) => (
                     <Bubble
@@ -134,7 +140,7 @@ export default function Chat(props) {
                 onKeyDown={handleKeyDown}
                 disabled={chatDisabled}
                 ref={inputRef}
-                style={{ maxWidth: "95%", position: "absolute", left: "11px", bottom: 0 }}
+                style={{ maxWidth: "95%", position: "relative", left: "11px", bottom:'-30px', fontSize:'14px'}}
             />
         </Container>
     );

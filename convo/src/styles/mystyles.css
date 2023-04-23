@@ -10,8 +10,23 @@
     stroke: rgba(0, 0, 0, 0.2);
   }
 
-  
-.CircularProgressbar-path       { stroke: red; }
-.CircularProgressbar-trail      { stroke: red; }
-.CircularProgressbar-text       { fill: red; }
-.CircularProgressbar-background { fill: red; }
+
+.logo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    /* identical to box height */
+    
+    
+    background: linear-gradient(179.4deg, #FFFFFF 42.01%, #000000 95.67%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+*{
+    font-family: 'Roboto Mono', monospace;
+}
