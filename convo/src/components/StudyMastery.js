@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { ListGroup, Button, Container } from "react-bootstrap";
-import { CircularProgressbar } from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import "react-circular-progressbar/dist/styles.css";
+
 
 const StudyMastery = (props) => {
     const [percent, setPercent] = useState(0);
@@ -21,6 +22,13 @@ const StudyMastery = (props) => {
             <div className="d-flex justify-content-center align-items-center flex-column">
                 <div className="text-center">
                     <CircularProgressbar
+                        styles={buildStyles({
+                            // The color of the progress bar
+                            pathColor: 'black',
+                            // The color of the text inside the progress bar
+                            textColor: 'black',
+                          })}
+                        backgroundColor={'red'}
                         value={props.percent}
                         text={`${props.percent}%`}
                         strokeWidth={10}
@@ -35,7 +43,7 @@ const StudyMastery = (props) => {
                     ))}
                 </ListGroup>
                 <div className="d-grid">
-                    <Button variant="success" size="lg" className="mb-3" href="/">
+                    <Button variant="success" size="lg" className="mb-3" href="/" style={{backgroundColor:'black'}}>
                         Ready for another Convo?
                     </Button>
                 </div>
