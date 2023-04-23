@@ -14,7 +14,7 @@ export default function Study({ data }) {
         if (localStorageData) {
             const data = JSON.parse(localStorageData)[uuid]?.values || [];
             const paragraphs = data.map((p) => p.original);
-            console.log(paragraphs);
+            // console.log(paragraphs);
             let preferences = "no preferences";
             if(localStorage.getItem("profile") != null){
                 preferences = localStorage.getItem("profile");
@@ -32,7 +32,7 @@ export default function Study({ data }) {
             });
 
             const responseParagraphsData = await responseParagraphs.json()
-            console.log(responseParagraphsData)
+            // console.log(JSON.parse(responseParagraphsData))
             for (const index in data) {
                 const cur = data[index];
                 if (!cur.questions) {
@@ -61,7 +61,7 @@ export default function Study({ data }) {
                     setQuestionsData((prev) => [...prev, cur.questions])
                 }
             }
-            setParagraphData(responseParagraphsData);
+            setParagraphData(JSON.parse(responseParagraphsData));
         }
 
     };
