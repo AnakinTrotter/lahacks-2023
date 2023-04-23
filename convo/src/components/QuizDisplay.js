@@ -143,7 +143,7 @@ import Modal from 'react-bootstrap/Modal'
                       </Card>
                     ))}
 
-                    <button type="submit" class="btn btn-secondary btn-lg">Submit Quiz</button>
+                    <button type="submit" className="btn btn-secondary btn-lg">Submit Quiz</button>
                   </Form>
                 </div>
                 </div>

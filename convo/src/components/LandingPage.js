@@ -23,6 +23,7 @@ const LandingPage = () => {
     }
 
     // split text into paragraphs
+    localStorage.setItem('fullPassage', textareaValue)
     const paragraphs = textareaValue.split(/\n\n/)
     const uuid = uuidv4()
     createSession(uuid, paragraphs)
