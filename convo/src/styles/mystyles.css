@@ -29,28 +29,6 @@
     stroke: rgba(0, 0, 0, 0.2);
   }
 
-<<<<<<< HEAD
-
-.logo{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 50px;
-    line-height: 61px;
-    /* identical to box height */
-    
-    
-    background: linear-gradient(179.4deg, #FFFFFF 42.01%, #000000 95.67%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-
-*{
-    font-family: 'Roboto Mono', monospace;
-}
-=======
   
 .CircularProgressbar-path       { stroke: red; }
 .CircularProgressbar-trail      { stroke: red; }
@@ -64,14 +42,14 @@
   width: 509px;
   height: 96px;
   left: 119px;
-  top: 120px;
-
+  top: 230px;
+  
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
   line-height: 48px;
-
+  
   background: linear-gradient(179.68deg, #FFFFFF 54.66%, #000000 120.45%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -160,4 +138,4 @@ top: 409px;
 border: 1px solid #FFFFFF;
 border-radius: 50%;
 }
->>>>>>> bddba33d56d07ce151a9124fde852b0753028a4d
+
