@@ -29,8 +29,9 @@ export default async function handler(req, res) {
         max_tokens: 2048
     });
     console.log("PROMPT: " + summaryPrompt(req.body.profile, req.body.paragraphs) )
-    console.log(JSON.stringify(completion.data.choices) + "POG")
+    // console.log(JSON.stringify(completion.data.choices) + "POG")
 
     const ans = completion.data.choices[0].message.content.trim()
+    console.log(ans + " QQQ")
     res.status(200).json(ans);
 }

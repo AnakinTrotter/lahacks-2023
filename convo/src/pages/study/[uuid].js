@@ -26,11 +26,13 @@ export default function Study({ data }) {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    profile:preferences,
-                    paragraphs:paragraphs
+                    profile: preferences,
+                    paragraphs: paragraphs
                 })
             });
-            console.log(responseParagraphs);
+
+            const responseParagraphsData = await responseParagraphs.json()
+            console.log(responseParagraphsData)
             for (const index in data) {
                 const cur = data[index];
                 if (!cur.questions) {
@@ -59,7 +61,7 @@ export default function Study({ data }) {
                     setQuestionsData((prev) => [...prev, cur.questions])
                 }
             }
-            setParagraphData(responseParagraphs);
+            setParagraphData(responseParagraphsData);
         }
 
     };
