@@ -53,3 +53,12 @@ const StudyMastery = (props) => {
 };
 
 export default StudyMastery;
+
+
+
+
+
+{
+    question:''
+
+}
