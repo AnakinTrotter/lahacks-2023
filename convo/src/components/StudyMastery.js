@@ -18,7 +18,7 @@ const StudyMastery = (props) => {
     }, [percent]);
 
     return (
-        <Container className="py-5"  >
+        <Container   >
             <div className="d-flex justify-content-center align-items-center flex-column">
                 <div className="text-center">
                     <CircularProgressbar

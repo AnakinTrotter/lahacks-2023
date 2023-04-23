@@ -18,10 +18,10 @@ import Header from './Header';
     }
 
     return (
-        <Container fluid style={{ maxHeight: '100vh' }}>
+        <Container fluid style={{ maxHeight: '100vh', overflowY: 'auto'}}>
             <Header/>
             <div className="row align-items-start">
-                <div className="col" style={{ paddingTop: '10vh',  overflowY: 'scroll', maxHeight: '100vh', borderRight: '2px solid black' }}>
+                <div className="col" style={{ paddingTop: '10vh',  overflowY: 'scroll', height: '100vh', borderRight: '2px solid black' }}>
                   {props.paragraphs.map((item, index) => (
                       <p>
                           {item}
@@ -29,8 +29,8 @@ import Header from './Header';
                   ))}
                 </div>
 
-                <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', maxHeight: '100vh', borderRight: '2px solid black' }} >
-                    <StudyMastery style={{ paddingTop: '10vh', maxHeight: '100vh', borderRight: '2px solid black' }} insights = {props.insights} paragraphs = {props.paragraphs} percent = {props.percent}/>
+                <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', height: '100vh', borderRight: '2px solid black' }} >
+                    <StudyMastery  insights = {props.insights} paragraphs = {props.paragraphs} percent = {props.percent}/>
                 </div>
             </div>
         </Container>
