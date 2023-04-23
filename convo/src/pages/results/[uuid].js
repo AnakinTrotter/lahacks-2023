@@ -18,9 +18,8 @@ export default function Results({ data }) {
                 const data = JSON.parse(localStorageData)[uuid]?.values || [];
                 const paragraphs = data.map((p) => p.original);
                 const percent = localStorage.getItem('percent');
-                insights = JSON.parse(localStorage.getItem("UserInfo"));
-                insights.push("HAHAHAHA XD :)");
-                localStorage.setItem("UserInfo", JSON.stringify(insights));
+                // insights = JSON.parse(localStorage.getItem("UserInfo"));
+                // localStorage.setItem("UserInfo", JSON.stringify(insights));
                 // console.log(localStorage.getItem("sessions"));
                 let totalTalks = JSON.parse(localStorage.getItem("sessions"));
                 let chats = [];
@@ -77,7 +76,7 @@ export default function Results({ data }) {
                 // console.log(JSON.parse(profile));
                 setInsights(JSON.parse(profile));
                 setParagraphs(paragraphs);
-                localStorage.setItem("UserInfo", JSON.parse(profile));   
+                localStorage.setItem("profile", JSON.parse(profile));   
                 setParagraphData(data);
                 setPercent(percent)
             }
