@@ -13,7 +13,7 @@ import Header from './Header';
     const router = useRouter()
 
     const submitQuiz = () => {
-        console.log(props.uuid)
+        // console.log(props.uuid)
         router.push(`/quiz/${props.uuid}`)
     }
 

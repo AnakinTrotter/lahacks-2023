@@ -36,7 +36,7 @@ export default function QuizPage({ data }) {
   const router = useRouter();
   const { uuid } = router.query;
   const [paragraphs, setParagraphs] = useState([]);
-  const [quizQuestions, setQuizQuestions] = useState(quizDummyQuestions);
+  const [quizQuestions, setQuizQuestions] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,17 +56,16 @@ export default function QuizPage({ data }) {
         });
 
         const questions = await response.json();
-        // console.log("QQQQ: " + JSON.stringify(questions))
-        setQuizQuestions(questions)
+        setQuizQuestions(JSON.parse(questions))
         setParagraphs(paragraphs);
       }
     };
     fetchData();
   }, [uuid]);
 
-  // if (!paragraphData || !paragraphs) {
-  //     return <div>Loading...</div>;
-  // }
+  if (!paragraphs || !quizQuestions || paragraphs.length == 0 || quizQuestions.length == 0) {
+    return <div>Loading...</div>;
+  }
 
   return <QuizDisplay uuid={uuid} paragraphs={paragraphs} questions={quizQuestions} />;
 }
