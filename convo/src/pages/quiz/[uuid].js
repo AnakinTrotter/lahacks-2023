@@ -64,9 +64,9 @@ export default function QuizPage({ data }) {
     fetchData();
   }, [uuid]);
 
-  // if (!paragraphData || !paragraphs) {
-  //     return <div>Loading...</div>;
-  // }
+  if (!paragraphs || !quizQuestions) {
+      return <div>Loading...</div>;
+  }
 
   return <QuizDisplay uuid={uuid} paragraphs={paragraphs} questions={quizQuestions} />;
 }
