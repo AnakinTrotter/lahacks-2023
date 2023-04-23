@@ -11,6 +11,7 @@ const Bubble = (props) => {
                 style={{
                     width: "fit-content",
                     minWidth: "4em",
+                    maxWidth: "50%",
                     backgroundColor: props.user ? "white" : "black",
                     color: props.user ? "black" : "white",
                 }}
