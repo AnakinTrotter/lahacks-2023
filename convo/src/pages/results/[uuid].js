@@ -62,7 +62,7 @@ export default function Results({ data }) {
                 }
                 prompt += "Please generate a profile about how User B understands readings as a string array.\n";
                 prompt += "Sample output: [\"prefers concise language\", \"not good with metaphors\", \"understands technical details\"]\n"
-                console.log(prompt);
+                // console.log(prompt);
                 const response = await fetch('/api/makeprofile', {
                     method: 'POST',
                     headers: {
