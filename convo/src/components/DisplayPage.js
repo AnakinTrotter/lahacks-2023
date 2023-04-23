@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import Header from './Header';
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
+import { v4 as uuidv4 } from 'uuid';
 
 function DisplayParagraph(props) {
     const highlightedRef = useRef(null);
@@ -26,7 +27,7 @@ function DisplayParagraph(props) {
         <div>
             {props.paragraphs.map((item, index) => (
                 <p
-                    key={crypto.randomUUID()}
+                    key={uuidv4()}
                     ref={index === props.indexNum ? highlightedRef : null}
                     style={{
                         textDecoration: index === props.indexNum ? 'bold' : 'none',
@@ -126,7 +127,7 @@ export default function DisplayPage(props) {
                         <Chat questions={props.questions[index]}
                             index={index}
                             uuid={props.uuid}
-                            key={crypto.randomUUID()} />
+                            key={uuidv4()} />
                     </div>
                 </div>
             </div>
