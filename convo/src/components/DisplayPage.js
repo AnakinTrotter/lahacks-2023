@@ -107,7 +107,7 @@ export default function DisplayPage(props) {
 
                 <div className="col" style={{ paddingTop: '10vh', maxHeight: '100vh', borderRight: '2px solid black' }}>
                     <div className="row" style={{ borderBottom: '2px solid black', overflowY: 'scroll', height: '30vh' }}>
-                        <DisplayApiCall paragraphs={props.paragraphs} indexNum={index} />
+                        <DisplayApiCall paragraphs={props.paragraphData} indexNum={index} />
                     </div>
                     <div className="row" style={{ borderBottom: '2px solid black', overflowY: 'scroll', height: '5vh' }}>
                         <Button onClick={handleClickDown} className="btn btn-secondary btn-sm" style={{

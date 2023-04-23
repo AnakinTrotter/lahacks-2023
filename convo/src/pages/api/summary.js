@@ -8,8 +8,6 @@ please rephrase this array of paragraphs and return it as an array of strings wi
 
 ${paragraphs}
 
-Sample output:
-["I am happy", "I am sad"]
 `
 }
 
@@ -30,10 +28,9 @@ export default async function handler(req, res) {
         ],
         max_tokens: 2048
     });
-
-    // console.log(completion.data.choices)
+    console.log("PROMPT: " + summaryPrompt(req.body.profile, req.body.paragraphs) )
+    console.log(JSON.stringify(completion.data.choices) + "POG")
 
     const ans = completion.data.choices[0].message.content.trim()
-
     res.status(200).json(ans);
 }
