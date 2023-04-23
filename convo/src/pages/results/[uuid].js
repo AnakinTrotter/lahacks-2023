@@ -27,7 +27,7 @@ export default function Results({ data }) {
                 for(let i in totalTalks){
                     // console.log(i);
                     // console.log(totalTalks[i])
-                    //totalTalks[i] is an array of the paragraphs\
+                    // totalTalks[i] is an array of the paragraphs\
                     // console.log(totalTalks[i]["values"]);
                     let values = totalTalks[i]["values"];
                     for(let j =0; j<values.length; j++){
@@ -45,6 +45,33 @@ export default function Results({ data }) {
                     }
                     console.log(chats)
                 }
+                localStorage.setItem("UserChats", JSON.stringify(chats));
+                let prompt = "Based on the text: \"" + chats[k][0];
+                let A = true;
+                prompt+= " User A and User B had this conversation:\n";
+                for(let x = 2; x<chats[k].length; x++){
+                    if(A){
+                        prompt+= "\nA: ";
+                    }
+                    else{
+                        prompt+="\n B: ";
+                    }
+                    A = !A;
+                    prompt += chats[k][x];
+                }
+                prompt += "Please give me User B\'s language preferences as a numbered list.";
+                console.log(prompt);
+                const response = await fetch('/api/makeprofile', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                      prompt: prompt
+                    })
+                  });
+                const profile = await response.json();
+                console.log(profile);
                 setInsights(insights);
                 setParagraphs(paragraphs);
                 setParagraphData(data);
