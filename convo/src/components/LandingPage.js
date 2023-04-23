@@ -35,7 +35,7 @@ const LandingPage = () => {
 
 
   return (
-    <Container fluid style={{ maxHeight: '100vh' }}>
+    <Container fluid style={{ overflow: 'hidden' }}>
       <div className="row align-items-start">
         <div className="landing-left-col">
           <div>
@@ -48,7 +48,7 @@ const LandingPage = () => {
             <Form onSubmit={handleFormSubmit}>
               <Form.Group controlId="formBasicInput form-inline">
                 <Form.Label className="hi-there">Hi There! What can I help you with?</Form.Label>
-                <textarea className="form-control" id="exampleFormControlTextarea1" rows="20" onChange={handleTextareaChange} defaultValue="Please paste your passage here..."></textarea>
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="20" onChange={handleTextareaChange} placeholder="Please paste your passage here..."></textarea>
               </Form.Group>
               <Button className="lets-chat-button"style={{ backgroundColor: "black", border: 'none', marginTop: '10px' }} type="submit">Let's chat!</Button>
             </Form>
