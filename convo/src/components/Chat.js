@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Card, Stack, Container, Form } from "react-bootstrap";
+import { v4 as uuidv4 } from 'uuid';
 const continueMessage = "Nice job! Click next to keep learning."
 
 const Bubble = (props) => {
@@ -122,7 +123,7 @@ export default function Chat(props) {
                     <Bubble
                         text={message}
                         user={index % 2 !== 0}
-                        key={crypto.randomUUID()}
+                        key={uuidv4()}
                     />
                 ))}
             </Stack>
