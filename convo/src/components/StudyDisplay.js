@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal'
-
+import Header from './Header';
   export default function StudyDisplay(props) {
     const router = useRouter()
 
@@ -18,14 +18,10 @@ import Modal from 'react-bootstrap/Modal'
     }
 
     return (
-        <Container fluid style={{ maxHeight: '100vh', overflowY: 'auto' }}>
-            <div id="top" className="row" style={{ borderBottom: '2px solid black', position: 'absolute', backgroundColor: 'white', height: '10vh', width: '100%' }}>
-                <div >
-                    <h1>Convo</h1>
-                </div>
-            </div>
+        <Container fluid style={{ maxHeight: '100vh' }}>
+            <Header/>
             <div className="row align-items-start">
-                <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', height: '100vh', borderRight: '2px solid black' }}>
+                <div className="col" style={{ paddingTop: '10vh',  overflowY: 'scroll', maxHeight: '100vh', borderRight: '2px solid black' }}>
                   {props.paragraphs.map((item, index) => (
                       <p>
                           {item}
@@ -33,8 +29,8 @@ import Modal from 'react-bootstrap/Modal'
                   ))}
                 </div>
 
-                <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', maxHeight: '100vh', borderRight: '2px solid black' }}>
-                    <StudyMastery insights = {props.insights} paragraphs = {props.paragraphs} percent = {props.percent}/>
+                <div className="col" style={{ paddingTop: '10vh', overflowY: 'scroll', maxHeight: '100vh', borderRight: '2px solid black' }} >
+                    <StudyMastery style={{ paddingTop: '10vh', maxHeight: '100vh', borderRight: '2px solid black' }} insights = {props.insights} paragraphs = {props.paragraphs} percent = {props.percent}/>
                 </div>
             </div>
         </Container>

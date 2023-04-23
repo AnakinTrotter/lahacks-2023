@@ -21,6 +21,30 @@ export default function Results({ data }) {
                 insights = JSON.parse(localStorage.getItem("UserInfo"));
                 insights.push("HAHAHAHA XD :)");
                 localStorage.setItem("UserInfo", JSON.stringify(insights)); 
+                // console.log(localStorage.getItem("sessions"));
+                let totalTalks = JSON.parse(localStorage.getItem("sessions"));
+                let chats = [];
+                for(let i in totalTalks){
+                    // console.log(i);
+                    // console.log(totalTalks[i])
+                    //totalTalks[i] is an array of the paragraphs\
+                    // console.log(totalTalks[i]["values"]);
+                    let values = totalTalks[i]["values"];
+                    for(let j =0; j<values.length; j++){
+                        chats.push([])
+                        //console.log(values[j]);
+                        chats[j].push(values[j]["original"]);
+                        chats[j].push("summary, values[j][\"summary\"]");
+                        //console.log(chats[j]["answers"])
+                        if(values[j]["answers"] != null){
+                            for(let k = 0; k<(values[j]["answers"]).length; k++){
+                                chats[j].push(values[j]["questions"][k]);
+                                chats[j].push(values[j]["answers"][k]);
+                            }
+                        }
+                    }
+                    console.log(chats)
+                }
                 setInsights(insights);
                 setParagraphs(paragraphs);
                 setParagraphData(data);

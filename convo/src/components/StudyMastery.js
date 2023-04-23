@@ -18,7 +18,7 @@ const StudyMastery = (props) => {
     }, [percent]);
 
     return (
-        <Container className="py-5">
+        <Container className="py-5"  >
             <div className="d-flex justify-content-center align-items-center flex-column">
                 <div className="text-center">
                     <CircularProgressbar
@@ -35,12 +35,12 @@ const StudyMastery = (props) => {
                     />
                 </div>
                 <ListGroup className="mb-4 mt-3">
-                    {props.insights.map((insight, index) => (
-                        <ListGroup.Item key={index} className="border-0">
-                            <span className="fw-bold me-2">{index + 1}.</span>
-                            {insight}
-                        </ListGroup.Item>
-                    ))}
+                {props.insights.slice(0, 5).map((insight, index) => (
+                    <ListGroup.Item key={index} className="border-0">
+                        <span className="fw-bold me-2">{index + 1}.</span>
+                        {insight}
+                    </ListGroup.Item>
+                ))}
                 </ListGroup>
                 <div className="d-grid">
                     <Button variant="success" size="lg" className="mb-3" href="/" style={{backgroundColor:'black'}}>
