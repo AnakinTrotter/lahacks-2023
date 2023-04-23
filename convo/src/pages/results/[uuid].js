@@ -76,7 +76,7 @@ export default function Results({ data }) {
                 // console.log(JSON.parse(profile));
                 setInsights(JSON.parse(profile));
                 setParagraphs(paragraphs);
-                localStorage.setItem("profile", JSON.parse(profile));   
+                localStorage.setItem("profile", JSON.parse(profile));
                 setParagraphData(data);
                 setPercent(percent)
             }
@@ -84,9 +84,10 @@ export default function Results({ data }) {
         fetchData();
     }, [uuid]);
 
-    // if (!paragraphData || !paragraphs) {
-    //     return <div>Loading...</div>;
-    // }
+    if (!paragraphData || !paragraphs || !insights ||
+        insights.length == 0 || paragraphs.length == 0) {
+        return <div>Loading...</div>;
+    }
 
     return <StudyDisplay uuid={uuid} insights={insights} percent={percent} paragraphs={paragraphs} />;
 }

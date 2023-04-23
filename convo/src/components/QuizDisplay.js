@@ -95,7 +95,7 @@ import Header from './Header';
     };
     function viewInfo(){
       if(submitted == true){
-        let number = (numCorrect/3)*100;
+        let number = (numCorrect/quizQuestions.length)*100;
         // console.log(number)
         localStorage.setItem('percent', number.toFixed(0))
         router.push(`/results/${props.uuid}`)
