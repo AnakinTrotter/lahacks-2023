@@ -6,7 +6,6 @@ import Header from './Header';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { createSession } from '@/database/dbUtils';
-import crypto from "crypto"
 
 const LandingPage = () => {
   const router = useRouter()

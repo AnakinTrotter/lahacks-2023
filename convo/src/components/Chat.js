@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { Card, Stack, Container, Form } from "react-bootstrap";
-import crypto from "crypto"
 const continueMessage = "Nice job! Click next to keep learning."
 
 const Bubble = (props) => {
