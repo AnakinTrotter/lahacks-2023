@@ -35,7 +35,7 @@ const StudyMastery = (props) => {
                     ))}
                 </ListGroup>
                 <div className="d-grid">
-                    <Button variant="success" size="lg" className="mb-3">
+                    <Button variant="success" size="lg" className="mb-3" href="/">
                         Ready for another Convo?
                     </Button>
                 </div>
