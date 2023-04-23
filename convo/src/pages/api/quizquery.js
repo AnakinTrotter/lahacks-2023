@@ -27,7 +27,7 @@ Sample output:
   }
 ]
 
-Create one multiple choice questions for the following passage. Please output only the JSON array and nothing else.
+Create two multiple choice questions for the following passage. Please output only the JSON array and nothing else.
 ${passage}  
 `
 }
