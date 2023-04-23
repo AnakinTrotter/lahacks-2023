@@ -1,7 +1,6 @@
 import DisplayPage from "@/components/DisplayPage"
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
-import { updateQuestions } from "@/database/dbUtils";
 
 export default function Study({ data }) {
     const router = useRouter();
