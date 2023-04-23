@@ -43,7 +43,7 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <div className="col" style={{ paddingTop: '10vh', height: '100vh', borderRight: '2px solid black' }}>
+        <div className="col" style={{ paddingTop: '10vh', height: '100vh' }}>
           <div>
             <Form onSubmit={handleFormSubmit}>
               <Form.Group controlId="formBasicInput form-inline">
