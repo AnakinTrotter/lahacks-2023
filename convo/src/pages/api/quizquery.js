@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi } from "openai";
 
 const quizPrompt = (passage) => {
   return `
-Your job is to take a passage and generate one multiple choice question about the content of the passage. Your response should be an array with a json object for each question. The object should have a question property and an answers  property. The answer property should store an array. The correct answer should be in the beginning of the answer array.
+Your job is to take a passage and generate one multiple choice question about the content of the passage.
 
 Sample output:
 
@@ -24,19 +24,10 @@ Sample output:
       { content: "Mars", isCorrect: false },
       { content: "Earth", isCorrect: false }
     ]
-  },
-  {
-    question: "What is the name of the longest river in Africa?",
-    answers: [
-      { content: "Nile", isCorrect: true },
-      { content: "Amazon", isCorrect: false },
-      { content: "Yangtze", isCorrect: false },
-      { content: "Mississippi", isCorrect: false },
-    ]
   }
 ]
 
-Create one multiple choice questions for the following passage. Please output only the JSON array and nothing else.
+Create three multiple choice questions for the following passage. Please output only the JSON array and nothing else.
 ${passage}  
 `
 }

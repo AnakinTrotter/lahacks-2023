@@ -13,7 +13,7 @@ import Modal from 'react-bootstrap/Modal'
     const router = useRouter()
 
     const submitQuiz = () => {
-        console.log(props.uuid)
+        // console.log(props.uuid)
         router.push(`/quiz/${props.uuid}`)
     }
 

@@ -96,7 +96,7 @@ import Modal from 'react-bootstrap/Modal'
     function viewInfo(){
       if(submitted == true){
         let number = (numCorrect/3)*100;
-        console.log(number)
+        // console.log(number)
         localStorage.setItem('percent', number.toFixed(0))
         router.push(`/results/${props.uuid}`)
       }

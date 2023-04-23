@@ -67,7 +67,7 @@ export default async function handler(req, res) {
     max_tokens: 2048
   });
 
-  console.log(completion.data.choices)
+  // console.log(completion.data.choices)
 
   const ans = completion.data.choices[0].message.content.trim()
 

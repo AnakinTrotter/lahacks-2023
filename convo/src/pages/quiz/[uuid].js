@@ -51,13 +51,11 @@ export default function QuizPage({ data }) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            // passage: localStorage.getItem('fullPassage')
             passage: localStorage.getItem('fullPassage')
           })
         });
 
         const questions = await response.json();
-        console.log("SHEE " + questions)
         setQuizQuestions(JSON.parse(questions))
         setParagraphs(paragraphs);
       }
